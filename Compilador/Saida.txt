@@ -1,0 +1,165 @@
+Token lido : programa
+Tipo = <identifier>
+LINHA = 0 COLUNA = 0
+
+
+Token lido : teste
+Tipo = <identifier>
+LINHA = 9 COLUNA = 0
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 14 COLUNA = 0
+
+
+Token lido : var
+Tipo = var
+LINHA = 0 COLUNA = 2
+
+
+Token lido : qtdCompras
+Tipo = <identifier>
+LINHA = 4 COLUNA = 2
+
+
+Token lido : ,
+Tipo = ,
+LINHA = 14 COLUNA = 2
+
+
+Token lido : qtdClientes
+Tipo = <identifier>
+LINHA = 16 COLUNA = 2
+
+
+Token lido : :
+Tipo = :
+LINHA = 28 COLUNA = 2
+
+
+Token lido : integer
+Tipo = <tipo-simples>
+LINHA = 30 COLUNA = 2
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 37 COLUNA = 2
+
+
+Token lido : var
+Tipo = var
+LINHA = 0 COLUNA = 3
+
+
+Token lido : compraConcluida
+Tipo = <identifier>
+LINHA = 4 COLUNA = 3
+
+
+Token lido : :
+Tipo = :
+LINHA = 20 COLUNA = 3
+
+
+Token lido : boolean
+Tipo = <tipo-simples>
+LINHA = 22 COLUNA = 3
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 29 COLUNA = 3
+
+
+Token lido : var
+Tipo = var
+LINHA = 0 COLUNA = 4
+
+
+Token lido : precoProduto
+Tipo = <identifier>
+LINHA = 4 COLUNA = 4
+
+
+Token lido : :
+Tipo = :
+LINHA = 17 COLUNA = 4
+
+
+Token lido : real
+Tipo = <tipo-simples>
+LINHA = 19 COLUNA = 4
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 23 COLUNA = 4
+
+
+Token lido : begin
+Tipo = begin
+LINHA = 0 COLUNA = 6
+
+
+Token lido : qtd
+Tipo = <identifier>
+LINHA = 4 COLUNA = 7
+
+
+Token lido : _
+Tipo = <outros>
+LINHA = 7 COLUNA = 7
+
+
+Token lido : compras
+Tipo = <identifier>
+LINHA = 8 COLUNA = 7
+
+
+Token lido : :=
+Tipo = becomes
+LINHA = 16 COLUNA = 7
+
+
+Token lido : 5
+Tipo = <int-lit>
+LINHA = 19 COLUNA = 7
+
+
+Token lido : *
+Tipo = <op-mul>
+LINHA = 20 COLUNA = 7
+
+
+Token lido : 3
+Tipo = <int-lit>
+LINHA = 21 COLUNA = 7
+
+
+Token lido : +
+Tipo = <op-ad>
+LINHA = 23 COLUNA = 7
+
+
+Token lido : 2
+Tipo = <int-lit>
+LINHA = 25 COLUNA = 7
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 26 COLUNA = 7
+
+
+Token lido : end
+Tipo = end
+LINHA = 0 COLUNA = 8
+
+
+Token lido : 
+Tipo = <eot>
+LINHA = 1 COLUNA = 9
+
+

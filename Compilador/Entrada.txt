@@ -1,0 +1,10 @@
+programa teste;
+
+var qtdCompras, qtdClientes : integer;
+var compraConcluida : boolean;
+var precoProduto : real;
+
+begin
+    qtd_compras := 5*3 + 2;
+end
+
