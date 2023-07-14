@@ -55,10 +55,10 @@ public class Scanner{
             
         if (this.charPosition++ != this.fileSize - 1){
             try {
-                this.line++;
+                this.column++;
                 if (this.currentChar == '\n'){
-                    this.line = 0;
-                    this.column++;
+                    this.column = 0;
+                    this.line++;
                 }
 
                 currentChar = ManipuladorArquivo.readChar("Entrada.txt", charPosition);
@@ -121,10 +121,18 @@ public class Scanner{
         }
 
         if (this.currentChar == '.'){
+            boolean flag = true; // Vai ser usado para verificar se houve apenas um ponto sozinho
+                                 // nesse caso, o Token é do tipo Ponto (DOT)
             takeIt();
             while(ehDigito(this.currentChar)){
                 takeIt();
+                flag = false;
             }
+
+            if (flag){
+                return Token.DOT;
+            }
+
             return Token.FLOAT_LITERAL;
         }
 
@@ -155,11 +163,6 @@ public class Scanner{
         if (this.currentChar == ','){
             takeIt();
             return Token.COMMA;
-        }
-
-        if (this.currentChar == '.'){
-            takeIt();
-            return Token.DOT;
         }
 
         if (this.currentChar == '>'){
@@ -217,7 +220,6 @@ public class Scanner{
     public Token scan(){
         int line, column;
         
-        System.out.println("---" + (int) this.currentChar + "---");
         while (this.currentChar == '!' || this.currentChar == ' ' || this.currentChar == '\n' || this.currentChar == '\t' || this.currentChar == '\r'){
             scanSeparator();
         }

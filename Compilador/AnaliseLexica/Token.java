@@ -22,7 +22,7 @@ public class Token {
         //de interesse e ver se ele é algum deles. Se for, colocamos seu tipo como o número referente à esse 
         //identificador localizado
         if (kind == IDENTIFIER){
-            for (int k = BEGIN; k <= DO; k++){
+            for (int k = BEGIN; k <= PROGRAMA; k++){
                 if (spelling.equals(spellings[k])){
                     this.kind = (byte) k;
                     break;
@@ -53,15 +53,15 @@ public class Token {
     public final static byte 
         IDENTIFIER = 0, EOT = 1, OPERATOR_ADD = 2, OPERATOR_MUL = 3,
         OPERATOR_REL = 4, TIPO_SIMPLES = 5, OUTROS = 6, BEGIN = 7, END = 8,
-        IF = 9, THEN = 10, ELSE = 11, VAR = 12, WHILE = 13, DO = 14, BECOMES = 15,
-        LPAR = 16, RPAR = 17, COLON = 18, SEMICOLON = 19, COMMA = 20, DOT = 21,
-        BOOL_LITERAL = 22, INT_LITERAL = 23, FLOAT_LITERAL = 24;
+        IF = 9, THEN = 10, ELSE = 11, VAR = 12, WHILE = 13, DO = 14, PROGRAMA = 15, 
+        BECOMES = 16, LPAR = 17, RPAR = 18, COLON = 19, SEMICOLON = 20, COMMA = 21, 
+        DOT = 22, BOOL_LITERAL = 23, INT_LITERAL = 24, FLOAT_LITERAL = 25;
 
     //Lista com os tipos de token colocados acima
     public final static String[] spellings = {
         "<identifier>", "<eot>", "<op-ad>", "<op-mul>", "<op-rel>", "<tipo-simples>",
-        "<outros>", "begin", "end", "if", "then", "else", "var", "while", "do", "becomes",
-        "(", ")", ":", ";", ",", ".", "<bool-lit>", "<int-lit>", "<float-lit>"
+        "<outros>", "begin", "end", "if", "then", "else", "var", "while", "do", "programa",
+        "becomes", "(", ")", ":", ";", ",", ".", "<bool-lit>", "<int-lit>", "<float-lit>"
     };
 
 }

@@ -1,0 +1,6 @@
+PENSE SOBRE LITERAL
+<literal> ::= <bool-lit> | <int-lit> | <float-lit> 
+first1 = {<bool-lit>, <int-lit>, <float-lit>}
+
+<tipo> ::= <tipo-simples>
+first1 = {<tipo-simples}

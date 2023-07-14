@@ -1,0 +1,86 @@
+// Para compor a gramática sintática que será usada no compilador, preciso reduzi-la à uma forma LL(1)
+// Fazer isso exige que os conjuntos first1 e follow1 (se houver derivação em vazio) de cada regra 
+// de derivação sejam disjuntos (entre sí e em sí)
+
+// Os terminais e não terminais devem ser os tokens da linguagem
+// Por isso, devo usar <bool-lit> <int-lit> e <float-lit> ao invés de apenas <literal>
+// Também será preciso examinar <outros>
+
+// As regras usadas para compor os tokens não foram incluídas, afinal fazem parte da gramática 
+// sintática
+
+// AJEITAR OS CONJUNTOS!!
+
+<atribuição> ::= <variável> := <expressão>
+first1 = {<id>}
+
+<comando> ::= <atribuição> | <condicional> | <iterativo> | <comando-composto>
+first1 = {<id>, if, while, begin}
+
+<comando-composto> ::= begin <lista-de-comandos> end
+first1 = {begin}
+
+<condicional> ::= if <expressão> then <comando> ( else <comando> | <vazio> )
+first1 = {if}
+
+<corpo> ::= <declarações> <comando-composto>
+first1 = {var}
+follow1 = {begin} 
+
+<declaração> ::= <declaração-de-variável> 
+first1 = {var}
+
+// Usei tipo-simples diretamente no parse
+<declaração-de-variável> ::= var <lista-de-ids> : <tipo-simples> 
+first1 = {var}
+
+<declarações> ::= (<declaração> ; )*
+first1 = {var}
+follow1 = {begin}
+
+<expressão> ::= <expressão-simples> (<op-rel> <expressão-simples> | <vazio>)
+first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+
+<expressão-simples> ::= <termo> (<op-ad> <termo>)*
+first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+
+<fator> ::= <variável> | <bool-lit> | <int-lit> | <float-lit> | "(" <expressão> ")"
+first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+
+<iterativo> ::= while <expressão> do <comando>
+first1 = {while}
+
+<lista-de-comandos> ::= (<comando> ;)*
+first1 = {<id>, if, while, begin}
+follow1 = {end}
+
+<lista-de-ids> ::= <id> ( , <id>)* 
+first1 = {id}
+
+//Essa regra foi abstraída. Usei os tipos de literal diretamente
+<literal> ::= <bool-lit> | <int-lit> | <float-lit> 
+first1 = {<bool-lit>, <int-lit>, <float-lit>}
+
+<programa> ::= program <id> ; <corpo> .
+first1 = {program}
+
+<termo> ::= <fator> (<op-mul> <fator>)* 
+first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+
+<tipo> ::= <tipo-simples>
+first1 = {<tipo-simples}
+
+// Eu quase abstraí a regra abaixo, mas gostei da organização que fica ao utilizar "variavel"
+// ao invés de simplesmente "id"
+<variável> ::= <id> 
+first1 = {<id>}
+
+<vazio> ::=
+// Não é token
+
+<outros> ::=
+    !
+    | @
+    | #
+    | ...
+first1() = {!, @, #, ...}

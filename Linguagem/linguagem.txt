@@ -1,3 +1,5 @@
+Tokens ======================================
+
 <Token> ::=
   <id> | <bool-lit> | <int-lit> | <float-lit>
   
@@ -17,3 +19,11 @@
 <op-rel> ::= < | > | <= | >= | = | <>
 <outros> ::= ! | @ | # | ...
 <tipo-simples> ::= integer | real | boolean
+
+Separadores =================================
+
+<Separator> ::= 
+  <espaço-vazio> | \t | \n | <Comment>
+
+<Comment> ::= !CommentLine | EOL
+<CommentLine> ::= Graphic CommentLine | Graphic

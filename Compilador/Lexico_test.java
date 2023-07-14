@@ -6,7 +6,7 @@ import java.io.IOException;
 //Compilar:
 //javac Main.java LeitorArquivo.ManipuladorArquivo CompiladorJava.Scanner CompiladorJava.Token
 
-public class Main {
+public class Lexico_test {
 	public static void main(String args[]) throws IOException {
 		String path = "Entrada.txt", destiny = "Saida.txt";
 		Scanner scanner = new Scanner(path);
