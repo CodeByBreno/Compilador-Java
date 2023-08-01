@@ -1,8 +1,34 @@
 package AnaliseSintatica;
 
 import java.io.IOException;
+
+import AnaliseContexto.Type;
 import AnaliseLexica.Scanner;
 import AnaliseLexica.Token;
+import ArvoreSintaticaAbstrata.Comando.Attribution;
+import ArvoreSintaticaAbstrata.Comando.Command;
+import ArvoreSintaticaAbstrata.Comando.CompositeCommand;
+import ArvoreSintaticaAbstrata.Comando.Condition;
+import ArvoreSintaticaAbstrata.Comando.Iteration;
+import ArvoreSintaticaAbstrata.ComandoList.CommandList;
+import ArvoreSintaticaAbstrata.Corpo.Body;
+import ArvoreSintaticaAbstrata.DeclaracaoVariavel.VariableDeclaration;
+import ArvoreSintaticaAbstrata.Declaracoes.Declarations;
+import ArvoreSintaticaAbstrata.ExpressaoSimples.SimpleExpression;
+import ArvoreSintaticaAbstrata.Fator.Expression;
+import ArvoreSintaticaAbstrata.Fator.Fator;
+import ArvoreSintaticaAbstrata.Fator.Variable;
+import ArvoreSintaticaAbstrata.Fator.Literal.BooleanLiteral;
+import ArvoreSintaticaAbstrata.Fator.Literal.FloatLiteral;
+import ArvoreSintaticaAbstrata.Fator.Literal.IntegerLiteral;
+import ArvoreSintaticaAbstrata.IDList.IDList;
+import ArvoreSintaticaAbstrata.Identificador.Identifier;
+import ArvoreSintaticaAbstrata.Operator.AdOperator;
+import ArvoreSintaticaAbstrata.Operator.MulOperator;
+import ArvoreSintaticaAbstrata.Operator.RelOperator;
+import ArvoreSintaticaAbstrata.Program.Program;
+import ArvoreSintaticaAbstrata.Termo.Termo;
+import ArvoreSintaticaAbstrata.TipoSimples.SimpleType;
 
 public class Parser {
     private Token currentToken;
@@ -43,9 +69,9 @@ public class Parser {
         currentToken = this.scanner.scan();
     }
 
-    public void parse(){
+    public Program parse(){
         currentToken = this.scanner.scan();
-        parseProgram();
+        Program programa = parseProgram();
         if (this.currentToken.kind != Token.EOT){
             this.state = false;
             System.out.println("ERRO: Finalizacao da leitura nao termina com EOT\n");
@@ -58,166 +84,266 @@ public class Parser {
                 System.out.println("ERRO: Ocorreu algum problema durante a compilacao do codigo\n");
             }
         }
+
+        return programa;
     }
 
     public boolean state(){
         return this.state;
     }
 
-    private void parseProgram(){
+    private Program parseProgram(){
         // <programa> ::= program <id> ; <corpo> .
         accept(Token.PROGRAMA);
+        String speeling = currentToken.spelling;
         accept(Token.IDENTIFIER);
+        Identifier id = new Identifier(speeling);
         accept(Token.SEMICOLON);
-        parseCorpo();
+        Body body = parseCorpo();
         accept(Token.DOT);
+
+        return new Program(id, body);
     }
 
-    private void parseCorpo(){
+    private Body parseCorpo(){
         // <corpo> ::= <declaracoes> <comando-composto>
-        parseDeclaracoes();
-        parseComandoComposto();
+        Declarations declarations = parseDeclaracoes();
+        CompositeCommand compositeCommand = parseComandoComposto();
+
+        return new Body(declarations, compositeCommand);
     }
 
-    private void parseDeclaracoes(){
+    private Declarations parseDeclaracoes(){
         // <declaracoes> ::= ( <declaracao-de-variavel> ; )*
+        Declarations declarations = null, aux = null;
+
         while(currentToken.kind == Token.VAR){
-            parseDeclaracaoDeVariavel();
+            VariableDeclaration varDeclaration = parseDeclaracaoDeVariavel();
+
+            if(declarations == null) {
+                declarations = new Declarations(varDeclaration, null);
+                aux = declarations;
+            } else {
+                aux.next = new Declarations(varDeclaration, null);
+                aux = aux.next;
+            }
+
             accept(Token.SEMICOLON);
         }
+
+        return declarations;
     }
 
-    private void parseComando(){
+    private Command parseComando(){
         // <comando> ::= <atribuição> | <condicional> | <iterativo> | <comando-composto>
+        Command command = null;
         switch(currentToken.kind){
             case Token.IDENTIFIER:
-                parseAtribuicao();
+                command = parseAtribuicao();
                 break;
             case Token.IF:
-                parseCondicional();
+                command = parseCondicional();
                 break;
             case Token.WHILE:
-                parseIterativo();
+                command = parseIterativo();
                 break;
             case Token.BEGIN:
-                parseComandoComposto();
+                command = parseComandoComposto();
                 break;
             default:
                 erroToken();
         }
+
+        return command;
     }
 
-    private void parseAtribuicao(){
+    private Attribution parseAtribuicao(){
         // <atribuição> ::= <variável> := <expressão>
-        parseVariavel();
+        Identifier identifier = parseIdentifier();
+        Variable variable = new Variable(identifier);
         accept(Token.BECOMES);
-        parseExpressao();
+        Expression expression = parseExpressao();
+
+        return new Attribution(variable, expression);
     }
 
-    private void parseCondicional(){
+    private Condition parseCondicional(){
         // <condicional> ::= if <expressão> then <comando> ( else <comando> | <vazio )
         accept(Token.IF);
-        parseExpressao();
+        Expression expression = parseExpressao();
         accept(Token.THEN);
-        parseComando();
+        Command commandIF = parseComando(), commandELSE = null;
 
         if (currentToken.kind == Token.ELSE){
             acceptIt();
-            parseComando();
+            commandELSE = parseComando();
         }
+
+        return new Condition(expression, commandIF, commandELSE);
     }
 
-    private void parseIterativo(){
+    private Iteration parseIterativo(){
         // <iterativo> ::= while <expressão> do <comando>
         accept(Token.WHILE);
-        parseExpressao();
+        Expression expression = parseExpressao();
         accept(Token.DO);
-        parseComando();
+        Command command = parseComando();
+
+        return new Iteration(expression, command);
     }
 
-    private void parseComandoComposto(){
+    private CompositeCommand parseComandoComposto(){
         // <comando-composto> ::= begin <lista-de-comandos> end
         accept(Token.BEGIN);
-        parseListaDeComandos();
+        CommandList commandList = parseListaDeComandos();
         accept(Token.END);
+        return new CompositeCommand(commandList);
     }
 
-    private void parseExpressao(){
+    private Expression parseExpressao(){
         // <expressão> ::= <expressão-simples> ( <op-rel> <expressão-simples> | <vazio )
-        parseExpressaoSimples();
+        SimpleExpression simpleExpression = parseExpressaoSimples();
+        Expression expression = new Expression(simpleExpression);
         if (currentToken.kind == Token.OPERATOR_REL){
+            String speeling = currentToken.spelling;
+            expression.line = currentToken.line;
+            expression.column = currentToken.column;
+            expression.setOperator(new RelOperator(speeling));
             acceptIt();
-            parseExpressaoSimples();
+            expression.setSimpleExpression(parseExpressaoSimples());
         }
+
+        return expression;
     }
 
-    private void parseExpressaoSimples(){
+    private SimpleExpression parseExpressaoSimples(){
         // <expressao-simples> ::= <termo> ( <op-ad> <termo> )*
-        parseTermo();
+        Termo termo = parseTermo();
+        SimpleExpression simpleExpression = new SimpleExpression(termo);
         while (currentToken.kind == Token.OPERATOR_ADD){
+            String speeling = currentToken.spelling;
+            simpleExpression.setOperator(new AdOperator(speeling));
             acceptIt();
-            parseTermo();
+            simpleExpression.setSimpleExpression(parseExpressaoSimples());
         }
+
+        return simpleExpression;
     }
 
-    private void parseTermo(){
+    private Termo parseTermo(){
         // <termo> ::= <fator> ( <op-mul> <fator> )*
-        parseFator();
+        Fator fator = parseFator();
+        Termo termo = new Termo(fator);
         while(currentToken.kind == Token.OPERATOR_MUL){
+            String speeling = currentToken.spelling;
+            termo.setOperator(new MulOperator(speeling));
             acceptIt();
-            parseFator();
+            termo.setTermo(parseTermo());
         }
+
+        return termo;
     }
 
-    private void parseFator(){
+    private Fator parseFator(){
         // <fator> ::= <variável> | <bool-lit> | <int-lit> | <float-lit> | "(" <expressao> ")"
+        Fator fator = null;
         switch(currentToken.kind){
             case Token.IDENTIFIER:
+                Identifier identifier = new Identifier(currentToken.spelling);
+                fator = new Variable(identifier);
+                fator.line = currentToken.line;
+                fator.column = currentToken.column;
+                acceptIt();
+                break;
             case Token.BOOL_LITERAL:
+                fator = new BooleanLiteral(currentToken.spelling);
+                fator.line = currentToken.line;
+                fator.column = currentToken.column;
+                acceptIt();
+                break;
             case Token.FLOAT_LITERAL:
+                fator = new FloatLiteral(currentToken.spelling);
+                fator.line = currentToken.line;
+                fator.column = currentToken.column;
+                acceptIt();
+                break;
             case Token.INT_LITERAL:
+                fator = new IntegerLiteral(currentToken.spelling);
+                fator.line = currentToken.line;
+                fator.column = currentToken.column;
                 acceptIt();
                 break;
             case Token.LPAR:
                 acceptIt();
-                parseExpressao();
+                fator = parseExpressao();
+                fator.line = currentToken.line;
+                fator.column = currentToken.column;
                 accept(Token.RPAR);
                 break;
             default:
                 erroToken();
         }
+
+        return fator;
     }
 
-    private void parseVariavel(){
-        // <variavel> ::= <id>
-        accept(Token.IDENTIFIER);
-    }
-
-    private void parseListaDeComandos(){
+    private CommandList parseListaDeComandos(){
         // <lista-de-comandos> ::= ( <comando> ; )*
+        CommandList commandList = null, aux = null;
         while((currentToken.kind == Token.IDENTIFIER) ||
               (currentToken.kind == Token.IF) || 
               (currentToken.kind == Token.WHILE) ||
               (currentToken.kind == Token.BEGIN)){
-                parseComando();
+                Command command = parseComando();
+
+                if(commandList == null) {
+                    commandList = new CommandList(command, null);
+                    aux = commandList;
+                } else {
+                    aux.next = new CommandList(command, null);
+                    aux = aux.next;
+                }
+
                 accept(Token.SEMICOLON);
               }
+        return commandList;
     }
 
-    private void parseDeclaracaoDeVariavel(){
+    private SimpleType parseTipoSimples(){
+        String tipo = currentToken.spelling;
+        accept(Token.TIPO_SIMPLES);
+
+        switch(tipo) {
+            case "integer": return new SimpleType(Type.Int);
+            case "boolean": return new SimpleType(Type.Bool);
+            default: return new SimpleType(Type.Float);
+        }
+    }
+
+    private VariableDeclaration parseDeclaracaoDeVariavel(){
         // <declaracao-de-variavel> ::= var <lista-de-ids> : <tipo-simples>
         accept(Token.VAR);
-        parseListaDeIds();
+        IDList idList = parseListaDeIds();
         accept(Token.COLON);
-        accept(Token.TIPO_SIMPLES); // Vou fazer logo direto aqui
+        // accept(Token.TIPO_SIMPLES); // Vou fazer logo direto aqui
+        SimpleType simpleType = parseTipoSimples();
+        return new VariableDeclaration(idList, simpleType);
     }
 
-    private void parseListaDeIds(){
-        // <lista-de-ids> ::= <id> ( , <id> )*
+    private Identifier parseIdentifier(){
+        String speeling = currentToken.spelling;
         accept(Token.IDENTIFIER);
+        return new Identifier(speeling);
+    }
+
+    private IDList parseListaDeIds(){
+        // <lista-de-ids> ::= <id> ( , <id> )*
+        IDList idList = new IDList(parseIdentifier());
         while(currentToken.kind == Token.COMMA){
             acceptIt();
-            accept(Token.IDENTIFIER);
+            idList.idList.add(parseIdentifier());
         }
+
+        return idList;
     }
 }

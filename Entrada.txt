@@ -1,11 +1,12 @@
 programa teste;
 
-var qtdCompras, qtdClientes : integer;
+var teste : boolean;
+var qtdCompras, qtdClientes, teste : integer;
 var metaAlcancada : boolean;
 var precoProduto, metaBuscada : real;
 
 begin
-    qtdCompras := 5*3 + 2;
+    qtdCompras := 5*3*1 + 2 + 10;
 
     while qtdClientes < 10
     do
