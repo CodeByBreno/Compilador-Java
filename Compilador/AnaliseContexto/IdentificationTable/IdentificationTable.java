@@ -16,7 +16,7 @@ public class IdentificationTable {
 
     public void add(String idSpeeling, Identifier declarationID) {
         if (scopes.get(scopes.size() - 1).put(idSpeeling, declarationID) != null) {
-            System.out.println("ERRO: " + idSpeeling + " já foi declarado\n");
+            System.out.println("ERRO: " + idSpeeling + " ja foi declarado\n");
             // System.out.println("SOURCE: LINHA = " + currentToken.line + " COLUNA = " + currentToken.column);
             // System.out.println("ULTIMO TOKEN LIDO: " + currentToken.spelling);
             System.exit(1);
