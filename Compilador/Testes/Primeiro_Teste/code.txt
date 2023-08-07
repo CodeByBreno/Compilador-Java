@@ -1,0 +1,41 @@
+teste:
+	PUSH 4
+	PUSH 1
+	PUSH 8
+	LOADL 5
+	LOADL 3
+	CALL mult
+	LOADL 2
+	CALL add
+	STORE (2) 0[SB]
+	JUMP R_0000
+	R_0001:
+	LOAD (2) 0[SB]
+	LOAD (4) 5[SB]
+	CALL mult
+	LOADL 0.75
+	LOAD (4) 9[SB]
+	CALL mult
+	CALL gt
+	JUMPIF (0) R_0002
+	LOADL true
+	STORE (1) 4[SB]
+	JUMP R_0003
+	R_0002:
+	LOADL false
+	STORE (1) 4[SB]
+	R_0003:
+	LOAD (2) 2[SB]
+	LOADL 1
+	CALL add
+	STORE (2) 2[SB]
+	LOAD (2) 2[SB]
+	STORE (2) 0[SB]
+	R_0000:
+	LOAD (2) 2[SB]
+	LOADL 10
+	CALL lt
+	JUMPIF (1) R_0001
+	POP (0) 13
+	HALT
+

@@ -1,120 +1,76 @@
 === Iniciando a Impressao da Arvore Abstrata Sintatica ===
 
 Programa
-|   Identifier teste
+|   Identifier sextoExemplo
 |   Body
 |   |   Declarations
 |   |   |   VariableDeclaration
 |   |   |   |   IDList
-|   |   |   |   |   Identifier qtdCompras
-|   |   |   |   |   Identifier qtdClientes
-|   |   |   |   SimpleType Integer
-|   |   |   VariableDeclaration
-|   |   |   |   IDList
-|   |   |   |   |   Identifier metaAlcancada
+|   |   |   |   |   Identifier variavelBooleana
 |   |   |   |   SimpleType Boolean
 |   |   |   VariableDeclaration
 |   |   |   |   IDList
-|   |   |   |   |   Identifier precoProduto
-|   |   |   |   |   Identifier metaBuscada
+|   |   |   |   |   Identifier variavelReal
 |   |   |   |   SimpleType Real
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier variavelInteira
+|   |   |   |   SimpleType Integer
 |   |   CompositeCommand
 |   |   |   CommandList
 |   |   |   |   Command
 |   |   |   |   |   Attribution
 |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   Identifier qtdCompras
-|   |   |   |   |   |   Expression
-|   |   |   |   |   |   |   SimpleExpression
-|   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   IntegerLiteral 5
-|   |   |   |   |   |   |   |   |   MulOperator *
-|   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   IntegerLiteral 3
-|   |   |   |   |   |   |   |   AdOperator +
-|   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   IntegerLiteral 2
-|   |   |   |   Command
-|   |   |   |   |   Iteration
+|   |   |   |   |   |   |   Identifier variavelReal
 |   |   |   |   |   |   Expression
 |   |   |   |   |   |   |   SimpleExpression
 |   |   |   |   |   |   |   |   Termo
 |   |   |   |   |   |   |   |   |   Fator
 |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   Identifier qtdClientes
-|   |   |   |   |   |   |   RelOperator <
+|   |   |   |   |   |   |   |   |   |   |   Identifier variavelInteira
+|   |   |   |   |   |   |   |   |   MulOperator *
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   FloatLiteral 2.0
+|   |   |   |   Command
+|   |   |   |   |   Condition
+|   |   |   |   |   |   Expression
 |   |   |   |   |   |   |   SimpleExpression
 |   |   |   |   |   |   |   |   Termo
 |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   IntegerLiteral 10
-|   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier variavelBooleana
+|   |   |   |   |   |   CommandIF
 |   |   |   |   |   |   |   CompositeCommand
 |   |   |   |   |   |   |   |   CommandList
 |   |   |   |   |   |   |   |   |   Command
-|   |   |   |   |   |   |   |   |   |   Condition
+|   |   |   |   |   |   |   |   |   |   Iteration
 |   |   |   |   |   |   |   |   |   |   |   Expression
 |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
 |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier qtdCompras
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   MulOperator *
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier precoProduto
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier variavelInteira
 |   |   |   |   |   |   |   |   |   |   |   |   RelOperator >
 |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
 |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FloatLiteral 0.75
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   MulOperator *
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier metaBuscada
-|   |   |   |   |   |   |   |   |   |   |   CommandIF
-|   |   |   |   |   |   |   |   |   |   |   |   Attribution
-|   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier metaAlcancada
-|   |   |   |   |   |   |   |   |   |   |   |   |   Expression
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   BooleanLiteral true
-|   |   |   |   |   |   |   |   |   |   |   CommandELSE
-|   |   |   |   |   |   |   |   |   |   |   |   Attribution
-|   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier metaAlcancada
-|   |   |   |   |   |   |   |   |   |   |   |   |   Expression
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   BooleanLiteral false
-|   |   |   |   |   |   |   |   |   Command
-|   |   |   |   |   |   |   |   |   |   Attribution
-|   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   Identifier qtdClientes
-|   |   |   |   |   |   |   |   |   |   |   Expression
-|   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
-|   |   |   |   |   |   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier qtdClientes
-|   |   |   |   |   |   |   |   |   |   |   |   |   AdOperator +
-|   |   |   |   |   |   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   IntegerLiteral 1
-|   |   |   |   |   |   |   |   |   Command
-|   |   |   |   |   |   |   |   |   |   Attribution
-|   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   Identifier qtdCompras
-|   |   |   |   |   |   |   |   |   |   |   Expression
-|   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
-|   |   |   |   |   |   |   |   |   |   |   |   |   Termo
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
-|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier qtdClientes
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   IntegerLiteral 0
+|   |   |   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   |   |   CompositeCommand
+|   |   |   |   |   |   |   |   |   |   |   |   |   CommandList
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier variavelReal
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier variavelReal
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MulOperator *
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   IntegerLiteral 2
 
 ==================== Fim da impressÃ£o ====================
 
