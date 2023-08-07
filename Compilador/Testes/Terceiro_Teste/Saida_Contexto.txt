@@ -1,0 +1,4 @@
+==================== Fim da impressao ====================
+
+Iniciando analise de contexto.
+ERRO: a ja foi declarado

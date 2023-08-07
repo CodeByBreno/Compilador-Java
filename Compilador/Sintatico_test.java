@@ -1,4 +1,5 @@
 import AnaliseSintatica.Parser;
+import ArvoreSintaticaAbstrata.Program.Program;
 
 import java.io.IOException;
 
@@ -10,7 +11,7 @@ public class Sintatico_test {
 		String path = "Entrada.txt";
 		System.out.println("===========================\n");
 		Parser parser = new Parser(path);
-        parser.parse();
+        Program aux = parser.parse();
 	}
 
 }

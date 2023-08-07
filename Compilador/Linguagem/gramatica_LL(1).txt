@@ -11,62 +11,78 @@
 
 // AJEITAR OS CONJUNTOS!!
 
+// Não Modificado
 <atribuição> ::= <variável> := <expressão>
 first1 = {<id>}
 
+// Não Modificado
 <comando> ::= <atribuição> | <condicional> | <iterativo> | <comando-composto>
-first1 = {<id>, if, while, begin}
+first1 = {{<id>}, {if}, {while}, {begin}}
 
+// Não Modificado
 <comando-composto> ::= begin <lista-de-comandos> end
 first1 = {begin}
 
+// Não Modificado
 <condicional> ::= if <expressão> then <comando> ( else <comando> | <vazio> )
 first1 = {if}
 
+// Não Modificado
 <corpo> ::= <declarações> <comando-composto>
 first1 = {var}
 follow1 = {begin} 
 
+// Não Modificado
 <declaração> ::= <declaração-de-variável> 
 first1 = {var}
 
-// Usei tipo-simples diretamente no parse
+// Substituição - Usei tipo-simples diretamente no parse
 <declaração-de-variável> ::= var <lista-de-ids> : <tipo-simples> 
 first1 = {var}
 
+// Eliminação de Recursão à esquerda e fatoração
 <declarações> ::= (<declaração> ; )*
 first1 = {var}
 follow1 = {begin}
 
+// Fatoração à esquerda
 <expressão> ::= <expressão-simples> (<op-rel> <expressão-simples> | <vazio>)
-first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+first1 = {{<id>}, {<bool-lit>}, {<int-lit>}, {<float-lit>}, { ( }}
 
+// Substituição e Fatoração
 <expressão-simples> ::= <termo> (<op-ad> <termo>)*
-first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+first1 = {{<id>}, {<bool-lit>}, {<int-lit>}, {<float-lit>}, { ( }}
 
+// Substituição
 <fator> ::= <variável> | <bool-lit> | <int-lit> | <float-lit> | "(" <expressão> ")"
-first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+first1 = {{<id>}, {<bool-lit>}, {<int-lit>}, {<float-lit>}, { ( }}
 
+// Não Modificado
 <iterativo> ::= while <expressão> do <comando>
 first1 = {while}
 
+// Fatoração
 <lista-de-comandos> ::= (<comando> ;)*
-first1 = {<id>, if, while, begin}
+first1 = {{<id>}, {if}, {while}, {begin}}
 follow1 = {end}
 
+// Fatoração
 <lista-de-ids> ::= <id> ( , <id>)* 
 first1 = {id}
 
 //Essa regra foi abstraída. Usei os tipos de literal diretamente
 <literal> ::= <bool-lit> | <int-lit> | <float-lit> 
-first1 = {<bool-lit>, <int-lit>, <float-lit>}
+first1 = {{<bool-lit>}, {<int-lit>}, {<float-lit>}}
 
+// Não Modificado
 <programa> ::= program <id> ; <corpo> .
 first1 = {program}
 
+// Fatoração
 <termo> ::= <fator> (<op-mul> <fator>)* 
-first1 = {<id>, <bool-lit>, <int-lit>, <float-lit>, "("}
+first1 = {{<id>}, {<bool-lit>}, {<int-lit>}, {<float-lit>},  { ( }}
 
+// Não Modificado
 <tipo> ::= <tipo-simples>
 first1 = {<tipo-simples}
 
@@ -83,4 +99,4 @@ first1 = {<id>}
     | @
     | #
     | ...
-first1() = {!, @, #, ...}
+first1() = {{ ! }, { @ }, { # }, ...}

@@ -1,0 +1,21 @@
+programa teste;
+
+var qtdCompras, qtdClientes : integer;
+var metaAlcancada : boolean;
+var precoProduto, metaBuscada : real;
+
+begin
+    qtdCompras := 5*3 + 2;
+
+    while qtdClientes < 10
+    do
+        begin
+            if qtdCompras * precoProduto > 0.75 * metaBuscada
+            then metaAlcancada := true
+            else metaAlcancada := false;
+
+            qtdClientes := qtdClientes + 1;
+            qtdCompras := qtdClientes;
+        end;
+end
+.

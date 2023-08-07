@@ -1,0 +1,11 @@
+programa umNovoExemplo;
+
+var variavelBooleana : boolean;
+var variavelReal : real;
+var variavelInteira : integer;
+
+begin
+    variavelReal := variavelInteira * 2.0; !Nenhum erro aqui
+    variavelInteira := variavelBooleana*variavelReal; !Operacao incompativel
+end
+.

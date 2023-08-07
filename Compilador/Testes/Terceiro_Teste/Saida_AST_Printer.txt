@@ -1,0 +1,134 @@
+=== Iniciando a Impressao da Arvore Abstrata Sintatica ===
+
+Programa
+|   Identifier teste1
+|   Body
+|   |   Declarations
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier a
+|   |   |   |   |   Identifier b
+|   |   |   |   |   Identifier c
+|   |   |   |   SimpleType Integer
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier d
+|   |   |   |   SimpleType Boolean
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier e
+|   |   |   |   |   Identifier f
+|   |   |   |   |   Identifier a
+|   |   |   |   SimpleType Real
+|   |   CompositeCommand
+|   |   |   CommandList
+|   |   |   |   Command
+|   |   |   |   |   Attribution
+|   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   |   |   AdOperator +
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier b
+|   |   |   |   Command
+|   |   |   |   |   Condition
+|   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   |   RelOperator >
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   IntegerLiteral 5
+|   |   |   |   |   |   CommandIF
+|   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   Identifier d
+|   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   BooleanLiteral true
+|   |   |   |   |   |   CommandELSE
+|   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   Identifier d
+|   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   BooleanLiteral false
+|   |   |   |   Command
+|   |   |   |   |   Condition
+|   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier d
+|   |   |   |   |   |   |   RelOperator =
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   BooleanLiteral true
+|   |   |   |   |   |   CommandIF
+|   |   |   |   |   |   |   CompositeCommand
+|   |   |   |   |   |   |   |   CommandList
+|   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   Iteration
+|   |   |   |   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   |   |   |   |   |   |   RelOperator >
+|   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   IntegerLiteral 5
+|   |   |   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   |   |   CompositeCommand
+|   |   |   |   |   |   |   |   |   |   |   |   |   CommandList
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier a
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AdOperator -
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier c
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   Command
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier e
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Identifier f
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AdOperator +
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FloatLiteral 0.1
+
+==================== Fim da impressão ====================
+

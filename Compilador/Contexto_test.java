@@ -24,13 +24,13 @@ public class Contexto_test {
     // file.write(treeString);
     // file.close();
 
-    OutputStream os = (OutputStream) new FileOutputStream( new File("out.txt") );
-    OutputStreamWriter osw = new OutputStreamWriter( os, "UTF8" );
-    PrintWriter pw = new PrintWriter( osw );
-    pw.println( treeString );
-    pw.close(); 
-    osw.close();
-    os.close();
+        OutputStream os = (OutputStream) new FileOutputStream( new File("out_Checker.txt") );
+        OutputStreamWriter osw = new OutputStreamWriter( os, "UTF8" );
+        PrintWriter pw = new PrintWriter( osw );
+        pw.println( treeString );
+        pw.close(); 
+        osw.close();
+        os.close();
 
     checker.check(program);
 	}

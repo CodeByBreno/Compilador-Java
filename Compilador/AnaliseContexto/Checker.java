@@ -39,7 +39,7 @@ public class Checker implements Visitor {
     }
 
     public void check(Program program) {
-        System.out.println("Iniciando análise de contexto.");
+        System.out.println("Iniciando analise de contexto.");
 
         if(program != null) {
             program.visit(this, null);
@@ -47,29 +47,29 @@ public class Checker implements Visitor {
 
         System.out.println(idTable.log);
 
-        System.out.println("Análise de contexto completa!");
+        System.out.println("Analise de contexto completa!");
     }
 
     private void erroDeclarationNotExists(Identifier id, int line, int column){
-        System.out.println("ERRO: " + id.speeling + " não foi declarado\n");
+        System.out.println("ERRO: " + id.speeling + " nao foi declarado\n");
         System.out.println("SOURCE: LINHA = " + line + " COLUNA = " + column);
         System.exit(1);
     }
 
     private void erroConditionType(Type type, int line, int column){
-        System.out.println("ERRO: A condição espera  um tipo booleano. Mas o tipo identificado foi " + type.getSpeeling() + "\n");
+        System.out.println("ERRO: A condiçao espera  um tipo booleano. Mas o tipo identificado foi " + type.getSpeeling() + "\n");
         System.out.println("SOURCE: LINHA = " + line + " COLUNA = " + column);
         System.exit(1);
     }
 
     private void erroAssignTypeError(Type varType, Type expType, int line ,int column){
-        System.out.println("ERRO: O tipo " + expType.getSpeeling() + " não corresponde ao tipo " + varType.getSpeeling() + "\n");
+        System.out.println("ERRO: O tipo " + expType.getSpeeling() + " nao corresponde ao tipo " + varType.getSpeeling() + "\n");
         System.out.println("SOURCE: LINHA = " + line + " COLUNA = " + column);
         System.exit(1);
     }
 
     private void erroExpressionTypeError(Type varType, Type expType, Operator op, int line, int column){
-        System.out.println("ERRO: Tipo dos operandos inválidos para a operação: " + varType.getSpeeling() + op.speeling + expType.getSpeeling() + "\n");
+        System.out.println("ERRO: Tipo dos operandos invalidos para a operaçao: " + varType.getSpeeling() + op.speeling + expType.getSpeeling() + "\n");
         System.out.println("SOURCE: LINHA = " + line + " COLUNA = " + column);
         System.exit(1);
     }

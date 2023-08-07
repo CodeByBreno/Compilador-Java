@@ -1,0 +1,10 @@
+==================== Fim da impressÃ£o ====================
+
+Iniciando analise de contexto.
+scope: 1  | qtdCompras      | Integer
+scope: 1  | qtdClientes     | Integer
+scope: 1  | metaAlcancada   | Boolean
+scope: 1  | precoProduto    | Real
+scope: 1  | metaBuscada     | Real
+
+Analise de contexto completa!

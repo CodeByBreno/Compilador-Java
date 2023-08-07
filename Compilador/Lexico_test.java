@@ -3,12 +3,9 @@ import LeitorArquivo.ManipuladorArquivo;
 
 import java.io.IOException;
 
-//Compilar:
-//javac Main.java LeitorArquivo.ManipuladorArquivo CompiladorJava.Scanner CompiladorJava.Token
-
 public class Lexico_test {
 	public static void main(String args[]) throws IOException {
-		String path = "Entrada.txt", destiny = "Saida.txt";
+		String path = "Entrada.txt", destiny = "Saida_Lexico.txt";
 		Scanner scanner = new Scanner(path);
 		String tipo = "breno";
 

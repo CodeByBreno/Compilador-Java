@@ -1,0 +1,11 @@
+programa banana begin 
+end .
+
+( while a > + abc1 ) % 
+olho
+integer : boolean 
+
+teste aaaaaaaaaaaaaaa1
+
+:= ( ! comentario 
+)
