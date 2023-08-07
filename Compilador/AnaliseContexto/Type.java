@@ -2,11 +2,13 @@ package AnaliseContexto;
 
 public class Type {
     private byte kind;
+    public int size;
 
     public static final byte BOOL = 0, INT = 1, FLOAT = 2, ERROR = -1;
 
-    public Type(byte kind) {
+    public Type(byte kind, int size) {
         this.kind = kind;
+        this.size = size;
     }
 
     public String getSpeeling() {
@@ -25,8 +27,8 @@ public class Type {
                 || aux.kind == ERROR);
     }
 
-    public static Type Bool = new Type(BOOL);
-    public static Type Int = new Type(INT);
-    public static Type Float = new Type(FLOAT);
-    public static Type Error = new Type(ERROR);
+    public static Type Bool = new Type(BOOL, 1);
+    public static Type Int = new Type(INT, 2);
+    public static Type Float = new Type(FLOAT, 4);
+    public static Type Error = new Type(ERROR, -1);
 }

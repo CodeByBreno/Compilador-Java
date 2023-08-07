@@ -3,37 +3,37 @@ package AnaliseContexto.IdentificationTable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ArvoreSintaticaAbstrata.DeclaracaoVariavel.VariableDeclaration;
+import ArvoreSintaticaAbstrata.Identificador.Identifier;
 
 public class IdentificationTable {
-    ArrayList<HashMap<String, VariableDeclaration>> scopes;
+    ArrayList<HashMap<String, Identifier>> scopes;
     public String log;
 
     public IdentificationTable() {
-        scopes = new ArrayList<HashMap<String, VariableDeclaration>>();
+        scopes = new ArrayList<HashMap<String, Identifier>>();
         log = new String();
     }
 
-    public void add(String id, VariableDeclaration declaration) {
-        if (scopes.get(scopes.size() - 1).put(id, declaration) != null) {
-            System.out.println("ERRO: " + id + " já foi declarado\n");
+    public void add(String idSpeeling, Identifier declarationID) {
+        if (scopes.get(scopes.size() - 1).put(idSpeeling, declarationID) != null) {
+            System.out.println("ERRO: " + idSpeeling + " já foi declarado\n");
             // System.out.println("SOURCE: LINHA = " + currentToken.line + " COLUNA = " + currentToken.column);
             // System.out.println("ULTIMO TOKEN LIDO: " + currentToken.spelling);
             System.exit(1);
         }
-        log += String.format("scope: %-2d | %-15s | %s\n", scopes.size(), id, declaration.simpleType.type.getSpeeling());
+        log += String.format("scope: %-2d | %-15s | %s\n", scopes.size(), idSpeeling, declarationID.simpleType.type.getSpeeling());
     }
 
-    public VariableDeclaration get(String id) {
+    public Identifier get(String id) {
         for(int index = scopes.size() - 1 ; index >= 0 ; index--) {
-            VariableDeclaration declaration = scopes.get(index).get(id);
-            if(declaration != null) return declaration;
+            Identifier declarationID = scopes.get(index).get(id);
+            if(declarationID != null) return declarationID;
         }
         return null;
     }
     
     public void openScope() {
-        scopes.add(new HashMap<String, VariableDeclaration>());
+        scopes.add(new HashMap<String, Identifier>());
     }
     
     public void closeScope() {

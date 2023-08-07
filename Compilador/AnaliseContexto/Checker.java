@@ -115,7 +115,11 @@ public class Checker implements Visitor {
         
         if(declaration.idList != null) {
             List<?> list = (List<?>) declaration.idList.visit(this, arg);
-            list.forEach(item -> idTable.add((( Identifier )item).speeling, declaration));
+            list.forEach(item -> {
+                Identifier id = (Identifier) item;
+                id.simpleType = declaration.simpleType;
+                idTable.add((( Identifier )item).speeling, (Identifier) item);
+            });
         }
 
         if(declaration.simpleType != null) {
@@ -293,11 +297,11 @@ public class Checker implements Visitor {
     public Object visitVariable(Variable variable, Object arg){
 
         if(variable.id != null) {
-            VariableDeclaration declaration = (VariableDeclaration) variable.id.visit(this, arg);
-            if(declaration == null) {
+            Identifier declarationID = (Identifier) variable.id.visit(this, arg);
+            if(declarationID == null) {
                 erroDeclarationNotExists(variable.id, variable.line, variable.column);
             }
-            variable.type = declaration.simpleType.type;
+            variable.type = declarationID.simpleType.type;
         }
 
         return variable.type;
@@ -309,8 +313,12 @@ public class Checker implements Visitor {
     
     public Object visitIdentifier(Identifier identifier, Object arg){
         // GET table reference and put on declaration
-        identifier.declaration = idTable.get(identifier.speeling);
-        return identifier.declaration;
+        identifier.declarationID = idTable.get(identifier.speeling);
+        if(identifier.declarationID == null) {
+            System.out.println("ERRO " + identifier.speeling + "\n");
+            System.exit(1);
+        }
+        return identifier.declarationID;
     }
 
     public Object visitBooleanLiteral(BooleanLiteral booleanLiteral, Object arg){

@@ -1,11 +1,13 @@
 package ArvoreSintaticaAbstrata.Identificador;
 
 import ArvoreSintaticaAbstrata.Visitor;
-import ArvoreSintaticaAbstrata.DeclaracaoVariavel.VariableDeclaration;
+import ArvoreSintaticaAbstrata.TipoSimples.SimpleType;
 
 public class Identifier {
     public String speeling;
-    public VariableDeclaration declaration;
+    public Identifier declarationID;
+    public SimpleType simpleType;
+    public int address;
 
     public Identifier(String speeling){
         this.speeling = speeling;
