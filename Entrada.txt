@@ -1,22 +1,19 @@
-programa teste;
+programa sextoExemplo;
 
-var teste : boolean;
-var qtdCompras, qtdClientes, teste : integer;
-var metaAlcancada : boolean;
-var precoProduto, metaBuscada : real;
+var variavelBooleana : boolean;
+var variavelReal : real;
+var variavelInteira : integer;
 
 begin
-    qtdCompras := 5*3*1 + 2 + 10;
-
-    while qtdClientes < 10
-    do
+    variavelReal := variavelInteira * 2.0; 
+    if variavelBooleana then
         begin
-            if qtdCompras * precoProduto > 0.75 * metaBuscada
-            then metaAlcancada := true
-            else metaAlcancada := false;
-
-            qtdClientes := qtdClientes + 1;
-            qtdCompras := qtdClientes;
+            while variavelInteira > 0 do
+                begin
+                    variavelReal := variavelReal*2;
+                end;
         end;
+    else
+        variavelReal := 0.0;
 end
 .

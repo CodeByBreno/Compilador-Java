@@ -166,7 +166,8 @@ public class CodeGenerator implements Visitor {
 
         labels.put((int) nextInstrAddr, g);
 
-        condition.commandELSE.visit(this, arg);
+        if(condition.commandELSE != null)
+            condition.commandELSE.visit(this, arg);
 
         labels.put((int) nextInstrAddr, h);
         

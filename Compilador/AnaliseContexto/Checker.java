@@ -176,7 +176,8 @@ public class Checker implements Visitor {
         }
 
         condition.commandIF.visit(this, arg);
-        condition.commandELSE.visit(this, arg);
+        if(condition.commandELSE != null)
+            condition.commandELSE.visit(this, arg);
 
         return null;
     }
@@ -314,10 +315,6 @@ public class Checker implements Visitor {
     public Object visitIdentifier(Identifier identifier, Object arg){
         // GET table reference and put on declaration
         identifier.declarationID = idTable.get(identifier.speeling);
-        if(identifier.declarationID == null) {
-            System.out.println("ERRO " + identifier.speeling + "\n");
-            System.exit(1);
-        }
         return identifier.declarationID;
     }
 
