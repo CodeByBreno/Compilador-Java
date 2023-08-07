@@ -22,9 +22,10 @@ public class AST_Printer_Test {
         // file.write(treeString);
         // file.close();
 
-        OutputStream os = (OutputStream) new FileOutputStream( new File("out.txt") );
+        OutputStream os = (OutputStream) new FileOutputStream( new File("out_AST.txt") );
         OutputStreamWriter osw = new OutputStreamWriter( os, "UTF8" );
         PrintWriter pw = new PrintWriter( osw );
+        System.out.println("Prestes a printar a arvore: ");
         pw.println( treeString );
         pw.close(); 
         osw.close();

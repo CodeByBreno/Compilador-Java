@@ -1,0 +1,115 @@
+Token lido : programa
+Tipo = programa
+LINHA = 0 COLUNA = 0
+
+
+Token lido : banana
+Tipo = <identifier>
+LINHA = 0 COLUNA = 9
+
+
+Token lido : begin
+Tipo = begin
+LINHA = 0 COLUNA = 16
+
+
+Token lido : end
+Tipo = end
+LINHA = 1 COLUNA = 0
+
+
+Token lido : .
+Tipo = .
+LINHA = 1 COLUNA = 4
+
+
+Token lido : (
+Tipo = (
+LINHA = 3 COLUNA = 0
+
+
+Token lido : while
+Tipo = while
+LINHA = 3 COLUNA = 2
+
+
+Token lido : a
+Tipo = <identifier>
+LINHA = 3 COLUNA = 8
+
+
+Token lido : >
+Tipo = <op-rel>
+LINHA = 3 COLUNA = 10
+
+
+Token lido : +
+Tipo = <op-ad>
+LINHA = 3 COLUNA = 12
+
+
+Token lido : abc1
+Tipo = <identifier>
+LINHA = 3 COLUNA = 14
+
+
+Token lido : )
+Tipo = )
+LINHA = 3 COLUNA = 19
+
+
+Token lido : %
+Tipo = <outros>
+LINHA = 3 COLUNA = 21
+
+
+Token lido : olho
+Tipo = <identifier>
+LINHA = 4 COLUNA = 0
+
+
+Token lido : integer
+Tipo = <tipo-simples>
+LINHA = 5 COLUNA = 0
+
+
+Token lido : :
+Tipo = :
+LINHA = 5 COLUNA = 8
+
+
+Token lido : boolean
+Tipo = <tipo-simples>
+LINHA = 5 COLUNA = 10
+
+
+Token lido : teste
+Tipo = <identifier>
+LINHA = 7 COLUNA = 0
+
+
+Token lido : aaaaaaaaaaaaaaa1
+Tipo = <identifier>
+LINHA = 7 COLUNA = 6
+
+
+Token lido : :=
+Tipo = becomes
+LINHA = 9 COLUNA = 0
+
+
+Token lido : (
+Tipo = (
+LINHA = 9 COLUNA = 3
+
+
+Token lido : )
+Tipo = )
+LINHA = 10 COLUNA = 0
+
+
+Token lido : 
+Tipo = <eot>
+LINHA = 10 COLUNA = 0
+
+

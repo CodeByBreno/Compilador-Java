@@ -1,0 +1,4 @@
+===========================
+
+SUCESSO: Arquivo lido. O codigo tem Sintaxe adequada
+

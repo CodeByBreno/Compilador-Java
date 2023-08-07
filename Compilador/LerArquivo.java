@@ -8,7 +8,7 @@ import java.io.IOException;
 public class LerArquivo {
 	public static void main(String args[]) throws IOException {
 		int i = 0;
-		String path = "Entrada.txt";
+		String path = "Entrada1.txt";
 		char currentChar;
 		long sizeFile = ManipuladorArquivo.sizeFile(path);
 

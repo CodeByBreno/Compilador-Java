@@ -35,7 +35,7 @@ public class Scanner{
                         this.column++;
                     }
 
-                    currentChar = ManipuladorArquivo.readChar("Entrada.txt", charPosition);
+                    currentChar = ManipuladorArquivo.readChar(this.arquivo, charPosition);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -61,7 +61,7 @@ public class Scanner{
                     this.line++;
                 }
 
-                currentChar = ManipuladorArquivo.readChar("Entrada.txt", charPosition);
+                currentChar = ManipuladorArquivo.readChar(this.arquivo, charPosition);
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("ERRO: Ocorreu um erro na leitura do Arquivo\n");
@@ -210,7 +210,7 @@ public class Scanner{
             while (ehGrafico(this.currentChar)){
                 takeIt();
             }
-            take('\n');
+            takeIt();
         }
         if (this.currentChar == ' ' || this.currentChar == '\n' || this.currentChar == '\t' || this.currentChar == '\r'){
             takeIt();

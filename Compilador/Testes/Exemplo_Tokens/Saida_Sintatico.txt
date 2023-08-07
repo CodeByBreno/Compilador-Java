@@ -1,0 +1,7 @@
+===========================
+
+ERRO: Token inesperado detectado
+
+SOURCE: LINHA = 0 COLUNA = 16
+ULTIMO TOKEN LIDO: begin
+TOKEN ESPERADO : ;

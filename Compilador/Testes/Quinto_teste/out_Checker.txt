@@ -1,0 +1,58 @@
+===========================
+
+SUCESSO: Arquivo lido. O codigo tem Sintaxe adequada
+
+=== Iniciando a Impressao da Arvore Abstrata Sintatica ===
+
+Programa
+|   Identifier umNovoExemplo
+|   Body
+|   |   Declarations
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier variavelBooleana
+|   |   |   |   SimpleType Boolean
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier variavelReal
+|   |   |   |   SimpleType Real
+|   |   |   VariableDeclaration
+|   |   |   |   IDList
+|   |   |   |   |   Identifier variavelInteira
+|   |   |   |   SimpleType Integer
+|   |   CompositeCommand
+|   |   |   CommandList
+|   |   |   |   Command
+|   |   |   |   |   Attribution
+|   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   Identifier variavelReal
+|   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier variavelInteira
+|   |   |   |   |   |   |   |   |   MulOperator *
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   FloatLiteral 2.0
+|   |   |   |   Command
+|   |   |   |   |   Attribution
+|   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   Identifier variavelInteira
+|   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier variavelBooleana
+|   |   |   |   |   |   |   |   |   MulOperator *
+|   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   |   |   Identifier variavelReal
+
+==================== Fim da impressÃ£o ====================
+
+Iniciando analise de contexto.
+ERRO: Tipo dos operandos invÃ¡lidos para a operaÃ§Ã£o: Boolean*Real
+
+SOURCE: LINHA = 0 COLUNA = 0

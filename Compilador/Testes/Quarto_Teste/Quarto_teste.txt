@@ -1,0 +1,13 @@
+programa umNovoExemplo;
+
+var x0, y0, x1, y1 : real;
+var distQuad, dx, dy : real;
+
+begin
+    dx := x0 - x1;
+    dy := y0 - y1;
+    dx := dx*dx;
+    dy := dy*dy;
+    distQuad := dx + dy;
+end
+.

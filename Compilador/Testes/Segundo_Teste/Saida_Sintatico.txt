@@ -1,0 +1,11 @@
+===========================
+
+ERRO: Token inesperado detectado
+
+SOURCE: LINHA = 11 COLUNA = 4
+ULTIMO TOKEN LIDO: else
+TOKEN ESPERADO : end
+
+// Esse erro ocorreu porque existe um ';' antes do else, que não deveria existir
+// Além disso, existem outros problemas, como a falta de ';' após o end do 
+// comando composto (begin-end) interno ao while e após o comando composto interno ao if

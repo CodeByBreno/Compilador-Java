@@ -1,19 +1,14 @@
-<Token> ::=
-  <id> | <literal> |
-  
-  begin | end | if | then |
-  else | var | while | do |
-  := | ( | ) | : | ; | , | . |
-  <outros> | <op-ad> | <op-mul> | <op-rel> |
-  <tipo-simples>
+<Token> ::= <identifier> | <eot> | <op-ad> | <op-mul> 
+| <op-rel> | <tipo-simples> | <outros> | begin | end | if | then | else | var | while | do | programa 
+| becomes | ( | ) | : | ; | , | . | <bool-lit> 
+| <int-lit> | <float-lit>
 
 <id> ::= <letra> | <id><letra> | <id><digito> 
-  <letra> ::= a | b | c | d | e | ... | z
+<letra> ::= a | b | c | d | e | ... | z
 
-<literal> ::= <bool-lit> | <int-lit> | <float-lit>
-  <bool-lit> ::= true | false
-  <int-lit> ::= <digito> | <int-lit><digito>
-  <float-lit> ::= <int-lit>.<int-lit> | <int-lit>. | .<int-lit>
+<bool-lit> ::= true | false
+<int-lit> ::= <digito> | <int-lit><digito>
+<float-lit> ::= <int-lit>.<int-lit> | <int-lit>. | .<int-lit>
   
 <digito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
@@ -24,17 +19,15 @@
 
 <tipo-simples> ::= integer | real | boolean
 
-OBS:
-- Talvez "(" | ")" façam parte dos tokens
-
-=================================================================================
+=======================================================
 
 <Separator> ::= 
-  <espaço-vazio> | \t | \n | <Comment>
+  <espaço-vazio> | \t | \n | \r | <Comment>
 
 <Comment> ::= !CommentLine | EOL
 <CommentLine> ::= Graphic CommentLine | Graphic
 
-OBS>:
+OBS:
 - EOL: end-of-line character
 - Graphic: any printable character or space
+

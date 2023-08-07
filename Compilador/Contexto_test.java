@@ -24,7 +24,7 @@ public class Contexto_test {
         // file.write(treeString);
         // file.close();
 
-        OutputStream os = (OutputStream) new FileOutputStream( new File("out.txt") );
+        OutputStream os = (OutputStream) new FileOutputStream( new File("out_Checker.txt") );
         OutputStreamWriter osw = new OutputStreamWriter( os, "UTF8" );
         PrintWriter pw = new PrintWriter( osw );
         pw.println( treeString );

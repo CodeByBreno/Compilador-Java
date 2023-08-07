@@ -37,14 +37,14 @@ public class Printer implements Visitor {
     }
 
     public String print(Program program) {
-        appendLine("=== Iniciando a impressão da Árvore Abstrata Sintática ===\n");
-        
+        appendLine("=== Iniciando a Impressao da Arvore Abstrata Sintatica ===\n");
         if(program != null) {
             program.visit(this, null);
         }
 
         appendLine("\n==================== Fim da impressão ====================");
 
+        System.out.println(impressao.toString());
         return impressao.toString();
     }
 
