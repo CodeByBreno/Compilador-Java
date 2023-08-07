@@ -1,0 +1,29 @@
+sextoExemplo:
+	PUSH 1
+	PUSH 4
+	PUSH 2
+	LOAD (2) 5[SB]
+	LOADL 2.0
+	CALL mult
+	STORE (4) 1[SB]
+	LOAD (1) 0[SB]
+	JUMPIF (0) R_0000
+	JUMP R_0001
+	R_0002:
+	LOAD (4) 1[SB]
+	LOADL 2
+	CALL mult
+	STORE (4) 1[SB]
+	R_0001:
+	LOAD (2) 5[SB]
+	LOADL 0
+	CALL gt
+	JUMPIF (1) R_0002
+	JUMP R_0003
+	R_0000:
+	LOADL 0.0
+	STORE (4) 1[SB]
+	R_0003:
+	POP (0) 7
+	HALT
+

@@ -1,3 +1,7 @@
+===========================
+
+SUCESSO: Arquivo lido. O codigo tem Sintaxe adequada
+
 === Iniciando a Impressao da Arvore Abstrata Sintatica ===
 
 Programa
@@ -71,6 +75,21 @@ Programa
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MulOperator *
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Fator
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   IntegerLiteral 2
+|   |   |   |   |   |   CommandELSE
+|   |   |   |   |   |   |   Attribution
+|   |   |   |   |   |   |   |   Variable
+|   |   |   |   |   |   |   |   |   Identifier variavelReal
+|   |   |   |   |   |   |   |   Expression
+|   |   |   |   |   |   |   |   |   SimpleExpression
+|   |   |   |   |   |   |   |   |   |   Termo
+|   |   |   |   |   |   |   |   |   |   |   Fator
+|   |   |   |   |   |   |   |   |   |   |   |   FloatLiteral 0.0
 
 ==================== Fim da impressÃ£o ====================
 
+Iniciando analise de contexto.
+scope: 1  | variavelBooleana | Boolean
+scope: 1  | variavelReal    | Real
+scope: 1  | variavelInteira | Integer
+
+Analise de contexto completa!

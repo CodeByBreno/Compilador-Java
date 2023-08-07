@@ -1,0 +1,265 @@
+Token lido : programa
+Tipo = programa
+LINHA = 0 COLUNA = 0
+
+
+Token lido : sextoExemplo
+Tipo = <identifier>
+LINHA = 0 COLUNA = 9
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 0 COLUNA = 21
+
+
+Token lido : var
+Tipo = var
+LINHA = 2 COLUNA = 0
+
+
+Token lido : variavelBooleana
+Tipo = <identifier>
+LINHA = 2 COLUNA = 4
+
+
+Token lido : :
+Tipo = :
+LINHA = 2 COLUNA = 21
+
+
+Token lido : boolean
+Tipo = <tipo-simples>
+LINHA = 2 COLUNA = 23
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 2 COLUNA = 30
+
+
+Token lido : var
+Tipo = var
+LINHA = 3 COLUNA = 0
+
+
+Token lido : variavelReal
+Tipo = <identifier>
+LINHA = 3 COLUNA = 4
+
+
+Token lido : :
+Tipo = :
+LINHA = 3 COLUNA = 17
+
+
+Token lido : real
+Tipo = <tipo-simples>
+LINHA = 3 COLUNA = 19
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 3 COLUNA = 23
+
+
+Token lido : var
+Tipo = var
+LINHA = 4 COLUNA = 0
+
+
+Token lido : variavelInteira
+Tipo = <identifier>
+LINHA = 4 COLUNA = 4
+
+
+Token lido : :
+Tipo = :
+LINHA = 4 COLUNA = 20
+
+
+Token lido : integer
+Tipo = <tipo-simples>
+LINHA = 4 COLUNA = 22
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 4 COLUNA = 29
+
+
+Token lido : begin
+Tipo = begin
+LINHA = 6 COLUNA = 0
+
+
+Token lido : variavelReal
+Tipo = <identifier>
+LINHA = 7 COLUNA = 4
+
+
+Token lido : :=
+Tipo = becomes
+LINHA = 7 COLUNA = 17
+
+
+Token lido : variavelInteira
+Tipo = <identifier>
+LINHA = 7 COLUNA = 20
+
+
+Token lido : *
+Tipo = <op-mul>
+LINHA = 7 COLUNA = 36
+
+
+Token lido : 2.0
+Tipo = <float-lit>
+LINHA = 7 COLUNA = 38
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 7 COLUNA = 41
+
+
+Token lido : if
+Tipo = if
+LINHA = 8 COLUNA = 4
+
+
+Token lido : variavelBooleana
+Tipo = <identifier>
+LINHA = 8 COLUNA = 7
+
+
+Token lido : then
+Tipo = then
+LINHA = 8 COLUNA = 24
+
+
+Token lido : begin
+Tipo = begin
+LINHA = 9 COLUNA = 8
+
+
+Token lido : while
+Tipo = while
+LINHA = 10 COLUNA = 12
+
+
+Token lido : variavelInteira
+Tipo = <identifier>
+LINHA = 10 COLUNA = 18
+
+
+Token lido : >
+Tipo = <op-rel>
+LINHA = 10 COLUNA = 34
+
+
+Token lido : 0
+Tipo = <int-lit>
+LINHA = 10 COLUNA = 36
+
+
+Token lido : do
+Tipo = do
+LINHA = 10 COLUNA = 38
+
+
+Token lido : begin
+Tipo = begin
+LINHA = 11 COLUNA = 16
+
+
+Token lido : variavelReal
+Tipo = <identifier>
+LINHA = 12 COLUNA = 20
+
+
+Token lido : :=
+Tipo = becomes
+LINHA = 12 COLUNA = 33
+
+
+Token lido : variavelReal
+Tipo = <identifier>
+LINHA = 12 COLUNA = 36
+
+
+Token lido : *
+Tipo = <op-mul>
+LINHA = 12 COLUNA = 48
+
+
+Token lido : 2
+Tipo = <int-lit>
+LINHA = 12 COLUNA = 49
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 12 COLUNA = 50
+
+
+Token lido : end
+Tipo = end
+LINHA = 13 COLUNA = 16
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 13 COLUNA = 19
+
+
+Token lido : end
+Tipo = end
+LINHA = 14 COLUNA = 8
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 14 COLUNA = 11
+
+
+Token lido : else
+Tipo = else
+LINHA = 15 COLUNA = 4
+
+
+Token lido : variavelReal
+Tipo = <identifier>
+LINHA = 16 COLUNA = 8
+
+
+Token lido : :=
+Tipo = becomes
+LINHA = 16 COLUNA = 21
+
+
+Token lido : 0.0
+Tipo = <float-lit>
+LINHA = 16 COLUNA = 24
+
+
+Token lido : ;
+Tipo = ;
+LINHA = 16 COLUNA = 27
+
+
+Token lido : end
+Tipo = end
+LINHA = 17 COLUNA = 0
+
+
+Token lido : .
+Tipo = .
+LINHA = 18 COLUNA = 0
+
+
+Token lido : 
+Tipo = <eot>
+LINHA = 18 COLUNA = 0
+
+

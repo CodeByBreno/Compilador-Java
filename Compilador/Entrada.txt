@@ -12,6 +12,8 @@ begin
                 begin
                     variavelReal := variavelReal*2;
                 end;
-        end;
+        end
+    else
+        variavelReal := 0.0;
 end
 .
